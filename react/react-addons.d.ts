@@ -139,7 +139,7 @@ declare module "react/addons" {
         state: S;
         context: {};
         refs: {
-            [key: string]: Component<any, any>
+            [key: string]: ClassicComponent<any, any>
         };
     }
 
