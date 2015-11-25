@@ -13,6 +13,7 @@ import * as dgram from "dgram";
 import * as querystring from "querystring";
 import * as path from "path";
 import * as readline from "readline";
+import * as childProcess from "child_process";
 
 assert(1 + 1 - 2 === 0, "The universe isn't how it should.");
 
@@ -21,6 +22,8 @@ assert.deepEqual({ x: { y: 3 } }, { x: { y: 3 } }, "DEEP WENT DERP");
 assert.equal(3, "3", "uses == comparator");
 
 assert.notStrictEqual(2, "2", "uses === comparator");
+
+assert.notDeepStrictEqual({ x: { y: "3" } }, { x: { y: 3 } }, "uses === comparator");
 
 assert.throws(() => { throw "a hammer at your face"; }, undefined, "DODGED IT");
 
@@ -401,3 +404,10 @@ rl.prompt(true);
 rl.question("do you like typescript?", function(answer: string) {
   rl.close();
 });
+
+//////////////////////////////////////////////////////////////////////
+/// Child Process tests: https://nodejs.org/api/child_process.html ///
+//////////////////////////////////////////////////////////////////////
+
+childProcess.exec("echo test");
+childProcess.spawnSync("echo test");
